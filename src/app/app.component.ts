@@ -8,6 +8,18 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/dra
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+   todo = [
+      'Date of Exam',
+      'Exam Start Time',
+      'Place of Exam'
+    ];
+  
+    done = [
+      'Examiner Name',
+      'Here is an example note',
+      'Examiner Degree',
+      'Examiner NPI'
+    ];
   //implements OnInit
   title = 'angular-dragdrop';
   public personaldetails = [];
@@ -21,8 +33,10 @@ export class AppComponent {
 
    onDrop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
+       this.mapEvent(event);
        moveItemInArray(event.container.data, 
           event.previousIndex, event.currentIndex);
+       
     } else {
        transferArrayItem(event.previousContainer.data,
        event.container.data,
@@ -30,4 +44,20 @@ export class AppComponent {
        event.currentIndex);
     }
   }
+
+  mapEvent(event){
+   event.previousContainer.data[event.previousIndex].idm = event.previousIndex + 1;
+  }
+
+  // horizontal + vertical drop
+  drop(event: CdkDragDrop<string[]>) {
+   if (event.previousContainer === event.container) {
+     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+   } else {
+     transferArrayItem(event.previousContainer.data,
+                       event.container.data,
+                       event.previousIndex,
+                       event.currentIndex);
+   }
+ }
 }
