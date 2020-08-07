@@ -8,7 +8,7 @@
    #personList = "cdkDropList"
    [cdkDropListData] = "personaldetails"
    
-   class = "example-list matero-row"
+   class = "cdkclass-list matero-row"
    (cdkDropListDropped) = "onDrop($event)" >
    
    <div *ngFor = "let item of personaldetails; 
@@ -24,9 +24,9 @@
 
 
 <br>
-<p>Angular CDK - Drag & Drop (Horizontal + Vertical)</p>
+<!-- <p>Angular CDK - Drag & Drop (Horizontal + Vertical)</p>
 
-<div class="example-container">
+<div class="cdkclass-container">
   <h2>Exam Information</h2>
 
   <div
@@ -34,16 +34,16 @@
     #todoList="cdkDropList"
     [cdkDropListData]="todo"
     [cdkDropListConnectedTo]="[doneList]"
-    class="example-list"
+    class="cdkclass-list"
     (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of todo" cdkDrag>
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+    <div class="cdkclass-box" *ngFor="let item of todo" cdkDrag>
+      <div class="cdkclass-custom-placeholder" *cdkDragPlaceholder></div>
       {{item}}
     </div>
   </div>
 </div>
 
-<div class="example-container">
+<div class="cdkclass-container">
   <h2>Examiner</h2>
 
   <div
@@ -51,14 +51,14 @@
     #doneList="cdkDropList"
     [cdkDropListData]="done"
     [cdkDropListConnectedTo]="[todoList]"
-    class="example-list"
+    class="cdkclass-list"
     (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of done" cdkDrag>
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+    <div class="cdkclass-box" *ngFor="let item of done" cdkDrag>
+      <div class="cdkclass-custom-placeholder" *cdkDragPlaceholder></div>
       {{item}}
     </div>
   </div>
-</div>
+</div> -->
 
 
 
