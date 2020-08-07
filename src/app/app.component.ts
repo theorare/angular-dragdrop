@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
- import { DragDropService } from './app.service';
+import { DragDropService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -20,23 +20,25 @@ export class AppComponent {
       'Examiner Degree',
       'Examiner NPI'
     ];
-  //implements OnInit
+  // implements OnInit
   title = 'angular-dragdrop';
   public personaldetails = [];
    constructor(private ddService: DragDropService) {}
+
    ngOnInit() {
       this.ddService.getData().subscribe((data) => {
-         this.personaldetails = Array.from(Object.keys(data), k=>data[k]);
+         this.personaldetails = Array.from(Object.keys(data), k => data[k]);
          console.log(this.personaldetails);
       });
    }
 
+   // tslint:disable-next-line: typedef
    onDrop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
        this.mapEvent(event);
-       moveItemInArray(event.container.data, 
+       moveItemInArray(event.container.data,
           event.previousIndex, event.currentIndex);
-       
+
     } else {
        transferArrayItem(event.previousContainer.data,
        event.container.data,
@@ -45,11 +47,13 @@ export class AppComponent {
     }
   }
 
+  // tslint:disable-next-line: typedef
   mapEvent(event){
    event.previousContainer.data[event.previousIndex].idm = event.previousIndex + 1;
   }
 
   // horizontal + vertical drop
+  // tslint:disable-next-line: typedef
   drop(event: CdkDragDrop<string[]>) {
    if (event.previousContainer === event.container) {
      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
